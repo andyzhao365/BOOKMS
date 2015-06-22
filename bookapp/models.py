@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from django.db import models
+import sys
+reload(sys)
+sys.setdefaultencoding( "utf-8" )
 class Book(models.Model):
     class Meta:
         verbose_name = '图书'

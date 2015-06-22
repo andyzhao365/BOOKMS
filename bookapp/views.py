@@ -1,5 +1,12 @@
-#coding:utf-8
+from django.shortcuts import render
+from django.template import loader,Context
 from django.http import HttpResponse
- 
-def index(request):
-    return HttpResponse(u"欢迎光临 自强学堂!")
+from bookapp.models import Book
+
+# Create your views here.
+
+def archive(request):
+    posts = Book.objects.all()
+    t = loader.get_template("archive.html")
+    c = Context({'posts':posts})
+    return HttpResponse(t.render(c))
